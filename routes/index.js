@@ -52,6 +52,15 @@ router.get('/memberform', function(req, res, next) {
   res.render('member');
 });
 
+router.get('/Books', function(req, res, next) {
+  res.render('books');
+});
+
+router.get('/about', function(req, res, next) {
+  res.render('about');
+});
+
+
 router.post('/wishdreamform', async function(req, res, next) {
   const {fullname, sex, age, city, state, country, email, phone, message} = req.body;
 
