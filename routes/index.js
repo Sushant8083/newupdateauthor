@@ -10,8 +10,42 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+router.post('/wishform', async function(req, res, next) {
+  const {fullname3, sex3, age3, city3, state3, country3, email3, phone3, message3} = req.body;
+
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: user_mail, // Use environment variable for email
+        pass: "eink rnuh busf sona" // Use environment variable for password
+    }
+  });
+  
+  // Compose email options
+  const mailOptions = {
+    from: user_mail, // Sender address
+    to: "onkarsushant05@gmail.com", // Recipient address
+    subject: `Details of ${fullname3}`, // Subject line
+    text: `Here are the details of ${fullname3}`,
+    html: `<p>Name : ${fullname3} <br> Sex : ${sex3} <br> Email : ${email3} <br>Age : ${age3} <br>Phone No. : ${phone3} <br> City : ${city3} <br> State : ${state3} <br> Country : ${country3} <br> Message : ${message3} <br> I want to fulfill my wish.  </p>` // Plain text body
+  };
+
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    res.render('wishDreamForm', { titlenew: "Form Submitted Successfully!" });
+    // console.log(somthing);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error submitting form. Please try again later.");
+  }
+});
+
 router.get('/wishdreamform', function(req, res, next) {
   res.render('wishDreamForm');
+});
+
+router.get('/joinprogram', function(req, res, next) {
+  res.render('joinProgram');
 });
 
 router.get('/memberform', function(req, res, next) {

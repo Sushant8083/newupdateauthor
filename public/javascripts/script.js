@@ -12,4 +12,4 @@ gsap.delayedCall(36, function() {
 
 setInterval(function(){
     document.querySelector("#main").style.display = "block";
-},36700 )
+},36900 )
