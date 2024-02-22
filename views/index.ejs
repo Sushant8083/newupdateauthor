@@ -17,51 +17,8 @@
   </div>
 
   <div id="main">
-    <nav class="navbar navbar-expand-lg bg-body-secondary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Realise Dreams in 3 Days Onwards</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">HOME</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Our Programs
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/wishdreamform">WRITE YOUR WISH <br> DREAM-PROBLEM</a></li>
-                <hr class="dropdown-divider">
-                <li><a class="dropdown-item" href="/memberform">REGISTER TO <br> BECOME A MEMBER</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="/joinprogram">JOIN WISH <br> FULFILMENT PROGRAM</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/Books">BOOKS </a>
-            </li>
-      
-            <li class="nav-item">
-              <a class="nav-link " aria-disabled="true" href="/about">ABOUT</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " aria-disabled="true" href="#">REVIEWS </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " aria-disabled="true" href="#">VIDEOS </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " aria-disabled="true" href="#">FIND US </a>
-            </li>
-          </ul>
-          
-        </div>
-      </div>
-    </nav>
+    
+    <%- include('nav'); -%>
 
     <!-- modals -->
     <div class="modal fade" id="exampleModalToggle" aria-hidden="true" data-bs-backdrop="static" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
@@ -152,7 +109,7 @@
       </div>
     </div>
     <!-- Featured 1 - Bootstrap Brain Component -->
- <section class="py-3 py-md-5 py-xl-8 bg-light">
+ <section class="py-3 py-md-5 py-xl-8 bg-light ">
   <div class="container">
     <article>
       <div class="card">
@@ -584,6 +541,9 @@
     </div>
   </div>
 </section>
+
+<%- include('footer'); -%>
+
 
 </div>
 

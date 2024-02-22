@@ -56,8 +56,16 @@ router.get('/Books', function(req, res, next) {
   res.render('books');
 });
 
+router.get('/review', function(req, res, next) {
+  res.render('review');
+});
+
 router.get('/about', function(req, res, next) {
   res.render('about');
+});
+
+router.get('/video', function(req, res, next) {
+  res.render('video');
 });
 
 
