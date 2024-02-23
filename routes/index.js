@@ -72,6 +72,10 @@ router.get('/findus', function(req, res, next) {
   res.render('finduspage');
 });
 
+router.get('/terms', function(req, res, next) {
+  res.render('term');
+});
+
 
 router.post('/wishdreamform', async function(req, res, next) {
   const {fullname, sex, age, city, state, country, email, phone, message} = req.body;
