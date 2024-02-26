@@ -91,7 +91,7 @@ router.post('/wishdreamform', async function(req, res, next) {
   // Compose email options
   const mailOptions = {
     from: user_mail, // Sender address
-    to: "onkarsushant05@gmail.com", // Recipient address
+    to: " realisedreams75@gmail.com", // Recipient address
     subject: `Details of ${fullname}`, // Subject line
     text: `Here are the details of ${fullname}`,
     html: `<p>Name : ${fullname} <br> Sex : ${sex} <br> Email : ${email} <br>Age : ${age} <br>Phone No. : ${phone} <br> City : ${city} <br> State : ${state} <br> Country : ${country} <br> Message : ${message} <br> </p>` // Plain text body
@@ -121,7 +121,7 @@ router.post('/memberform', async function(req, res, next) {
   // Compose email options
   const mailOptions = {
     from: user_mail, // Sender address
-    to: "onkarsushant05@gmail.com", // Recipient address
+    to: " realisedreams75@gmail.com", // Recipient address
     subject: `Details of ${fullname2}`, // Subject line
     text: `Here are the details of ${fullname2}`,
     html: `<p>Name : ${fullname2} <br> Sex : ${sex2} <br> Email : ${email2} <br>Age : ${age2} <br>Phone No. : ${phone2} <br> City : ${city2} <br> State : ${state2} <br> Country : ${country2} <br> Message : ${message2} <br> WANT TO BECOME MEMBER </p>` // Plain text body
