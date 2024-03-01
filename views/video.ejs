@@ -331,6 +331,33 @@
             </div>
           </article>
         </div>
+        <%newvideo.forEach(function(video){%>
+          <div class="col-12 col-lg-4">
+            <article>
+              <div class="card border-0 bg-transparent">
+                <figure class="card-img-top mb-4 overflow-hidden bsb-overlay-hover">
+                  <a href="<%=video.videolink%>">
+                    <img class="img-fluid bsb-scale bsb-hover-scale-up" loading="lazy" src="<%=video.videoimage%>" alt="Finance">
+                  </a>
+                </figure>
+                <div class="card-body m-0 p-0">
+                  <div class="entry-header mb-3">
+                   
+                    <h2 class="card-title entry-title h4 m-0">
+                      <a class="link-dark text-decoration-none" href="<%=video.videolink%>"><%=video.videotitle%></a>
+                    </h2>
+                    <h5 class="card-title entry-title h6 m-0 mt-3">
+                     <%=video.videodescription%>
+                    </h5>
+  
+                  </div>
+                </div>
+                
+              </div>
+            </article>
+          </div>
+        <%})%>
+        
       </div>
     </div>
 
@@ -425,3 +452,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
+

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <!-- Contact 1 - Bootstrap Brain Component -->
+<section class="bg-light py-3 py-md-5">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+          <h2 class="mb-4 display-5 text-center fw-bold">Admin Panal</h2>
+          <p class="text-dark mb-3 text-center fw-bold">click below button to login</p>
+            <a href="/logout"><button type="button" class="btn btn-dark text-light fw-bold"style="margin-left: 280px;">Logout</button></a>
+          <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+          <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger text-light fw-bold"style="margin-left: 280px;">Add Book</button>
+
+          <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" class="btn btn-danger text-light fw-bold mt-3"style="margin-left: 272px;">Delete Book</button>
+
+          <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal3" class="btn btn-danger text-light fw-bold mt-3"style="margin-left: 273px;">Add Review</button>
+
+          <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal4" class="btn btn-danger text-light fw-bold mt-3"style="margin-left: 268px;">Delete Review</button>
+
+          <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal5" class="btn btn-danger text-light fw-bold mt-3"style="margin-left: 268px;">Add Video</button>
+
+          
+          <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal6" class="btn btn-danger text-light fw-bold mt-3"style="margin-left: 268px;">Delete Video</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- add book model -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Books</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/addbook" method="post" enctype="multipart/form-data">
+                <input type="file" name="bookimage">
+                <input type="text" name="bookname" placeholder="Book title">
+                <input type="text" name="description" placeholder="Description">
+                <input type="text" name="amazonlink" placeholder="Amazon link">
+                <input type="text" name="price" placeholder="Price">
+                <button type="submit">Upload Book</button>
+              </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- delete book model -->
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Books</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/deletebook" method="post">
+              <input type="text" name="bookname" placeholder="Description">
+              <button type="submit">Upload Book</button>
+              </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- add review model -->
+  <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Reviews</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/addreview" method="post">
+              <input type="text" name="review" placeholder="Write your review">
+              <input type="text" name="reviewname" placeholder="Write your name!">
+              <input type="text" name="shortdis" placeholder="Wirte About yourself in short">
+
+              <button type="submit">Upload Review</button>
+              </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- delete review model -->
+  <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Books</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/deletereview" method="post">
+              <input type="text" name="reviewname" placeholder="reviewname">
+              <button type="submit">Upload Book</button>
+              </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- add video model -->
+  <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Video</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/addvideo" method="post" enctype="multipart/form-data">
+              <input type="file" name="vimage">
+              <input type="text" name="vlink" placeholder="Enter video link here!">
+              <input type="text" name="vtitle" placeholder="Enter title of your video!">
+              <input type="text" name="vdes" placeholder="Enter description of your video!">
+              <button type="submit">Upload Review</button>
+              </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- delete video model -->
+  <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete  Video</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/deletevideo" method="post">
+              <input type="text" name="vtitle" placeholder="Video Title">
+              <button type="submit">Upload Book</button>
+              </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Author 2 - Bootstrap Brain Component -->
+  <h1 class="text-center fw-bold">Check Member List Below!</h1>
+  <%member.forEach(function(member){%>
+    <section class="bsb-author-2 py-3 bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10 col-xl-8 col-xxl-7">
+            <div class="card border-light-subtle p-4">
+              <div class="row gy-3 align-items-center">
+                <div class="col-md-4">
+                  <a href="#!" class="bsb-hover-image d-block rounded overflow-hidden">
+                    <img class="img-fluid author-avatar bsb-scale bsb-hover-scale-up" loading="lazy" src="<%=member.image%>" alt="Iris Henry">
+                  </a>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h3 class="card-title mb-2">
+                      <a class="card-link link-dark text-decoration-none" href="#!"><%=member.fullname%></a>
+                    </h3>
+                    <p class="card-text mb-1 fw-bold"><%=member.sex%></p>
+                    <p class="card-text mb-1 fw-bold"><%=member.age%></p>
+                    <p class="card-text mb-1 fw-bold"><%=member.city%></p>
+                    <p class="card-text mb-1 fw-bold"><%=member.state%></p>
+                    <p class="card-text mb-1 fw-bold"><%=member.country%></p>
+                    <p class="card-text mb-1 fw-bold"><%=member.email%></p>
+                    <p class="card-text mb-1 fw-bold"><%=member.phone%></p>
+                    <ul class="bsb-social-media nav m-0">
+                      <li class="nav-item">
+                        <form action="/confirm/<%= member._id%>" method="post">
+                          <input type="text" name="membercode" id="" placeholder="Enter Membership Number">
+                          <input type="submit" value="Sent Confirmation mail" >
+                        </form>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <%})%>
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

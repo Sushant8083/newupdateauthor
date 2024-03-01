@@ -357,6 +357,35 @@
               </div>
             </div>
           </div>
+
+          <%newreview.forEach(function(newreview){%>
+            <div class="col-12 col-lg-6">
+              <div class="card">
+                <div class="card-body p-4 p-xxl-5">
+                  <div
+                    class="bsb-ratings text-warning mb-3"
+                    data-bsb-star="3"
+                    data-bsb-star-off="2"
+                  ></div>
+                  <blockquote class="bsb-blockquote-icon mb-3 fw-semibold">
+                    <%=newreview.description%>
+                  </blockquote>
+                  <figure class="d-flex align-items-center m-0 p-0">
+                    <img class="img-fluid rounded rounded-circle m-0 border border-5 " loading="lazy" src="/images/log.jpg" style="width: 60px; height: 60px;" alt="Luna John">
+                    <figcaption class="ms-3">
+                      <h4 class="mb-1 h5"><%=newreview.username%></h4>
+                      <h5 class="fs-6 text-warning mb-0">
+                        <%=newreview.shortdis%>
+                      </h5>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          <%})%>
+          
+
+
         </div>
       </div>
     </section>
