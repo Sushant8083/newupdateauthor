@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 var nodemailer= require('nodemailer')
 var user_mail = "sushantwork295@gmail.com"
-// var user_mail2 = "realisedreams75@gmail.com"/
+var user_mail2 = "realisedreams75@gmail.com";
 var user = require('./users');
 var bookmodel = require('./books');
 var reviewmodel = require('./review');
@@ -185,7 +185,7 @@ router.post('/confirm/:id', async function(req, res, next) {
     service: 'gmail',
     auth: {
         user: user_mail, // Use environment variable for email
-        pass: "eink rnuh busf sona" // Use environment variable for password
+        pass: "nlwi scst wzuy wcrp" // Use environment variable for password
     }
   });
 
@@ -193,7 +193,7 @@ router.post('/confirm/:id', async function(req, res, next) {
   
   // Compose email options
   const mailOptions = {
-    from: user_mail, // Sender address
+    from: user_mail2, // Sender address
     to: member.email, // Recipient address
     subject: "Membership Confirmation!", // Subject line
     // text: `Here are the details of ${fullname}`,
@@ -223,6 +223,14 @@ router.post('/memberform', async function(req, res, next) {
         pass: "eink rnuh busf sona" // Use environment variable for password
     }
   });
+
+  const transporter2 = nodemailer.createTransport({
+    service : 'gmail',
+    auth: {
+        user: user_mail2, // Use environment variable for email
+        pass: "nlwi scst wzuy wcrp" // Use environment variable for password
+    }
+  });
   
   // Compose email options
   const mailOptions = {
@@ -234,7 +242,7 @@ router.post('/memberform', async function(req, res, next) {
   };
 
   const mailOptions2 = {
-    from: user_mail, // Sender address
+    from: user_mail2, // Sender address
     to: `${email2}`, // Recipient address
     subject: `Thank You For Becoming Member ${fullname2}`, // Subject line
     text: "In sometime will after confirmation of your payment will send you the membership code soon!",
@@ -244,7 +252,7 @@ router.post('/memberform', async function(req, res, next) {
 
   try {
     const info = await transporter.sendMail(mailOptions);
-    const info2 = await transporter.sendMail(mailOptions2);
+    const info2 = await transporter2.sendMail(mailOptions2);
 
     cloudinary.uploader.upload(recipt.tempFilePath, async function (err, result) {
       // if (err) {
