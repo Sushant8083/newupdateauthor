@@ -11,5 +11,5 @@
 
 
 // setInterval(function(){
-//     document.querySelector("#main").style.display = "block";
+//      
 // },9500 )
