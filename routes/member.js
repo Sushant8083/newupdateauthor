@@ -37,7 +37,7 @@ const memberSchema = mongoose.Schema({
     type : String,
     require : false
   },
-  image:String,
+  // image:String,
 
 });
 
