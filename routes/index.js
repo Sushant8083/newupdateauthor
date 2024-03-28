@@ -10,6 +10,10 @@ var reviewmodel = require('./review');
 var videomodel = require('./video');
 var membermodel = require('./member');
 
+const accountSid = 'AC16a049216a801239841e718ea27df158';
+const authToken = '32fc407252e92fcd97935c1895f077ed';
+const client = require('twilio')(accountSid, authToken);
+
 
 
 const passport = require('passport');
@@ -211,31 +215,41 @@ router.post('/confirm/:id', async function(req, res, next) {
 });
 
 router.post('/memberform', async function(req, res, next) {
-  const {fullname2, sex2, age2, city2, state2, country2, email2, phone2, message2} = req.body;
+  try {
+    await client.messages.create({
+      from: '+17604440051',
+      to: '+919560249729',
+      body: 'CHECK WHEATEHR YOU GOT ANY PAYMENT IN PHONEPAY.' // Add a body for the SMS
+    });
+    console.log("Message sent successfully");
+  } catch (error) {
+    console.error("Error sending message:", error);
+    // Handle error appropriately, perhaps send a response to the client
+  }
 
-  const recipt = req.files.feephoto; // Change 'photo' to 'bookimage'
-
+  const { fullname2, sex2, age2, city2, state2, country2, email2, phone2, message2 } = req.body;
+  // const receipt = req.files.feephoto; // Change 'photo' to 'bookimage'
 
   const transporter = nodemailer.createTransport({
-    service : 'gmail',
+    service: 'gmail',
     auth: {
-        user: user_mail, // Use environment variable for email
-        pass: "eink rnuh busf sona" // Use environment variable for password
+      user: user_mail, // Use environment variable for email
+      pass: "eink rnuh busf sona" // Use environment variable for password
     }
   });
 
   const transporter2 = nodemailer.createTransport({
-    service : 'gmail',
+    service: 'gmail',
     auth: {
-        user: user_mail2, // Use environment variable for email
-        pass: "nlwi scst wzuy wcrp" // Use environment variable for password
+      user: user_mail2, // Use environment variable for email
+      pass: "nlwi scst wzuy wcrp" // Use environment variable for password
     }
   });
-  
+
   // Compose email options
   const mailOptions = {
     from: user_mail, // Sender address
-    to: " realisedreams75@gmail.com", // Recipient address
+    to: "realisedreams75@gmail.com", // Recipient address
     subject: `Check Payment of ${fullname2}`, // Subject line
     text: `Here are the details of ${fullname2}`,
     html: `<h1>Check any payment done!</h1><br><p>Name : ${fullname2} <br> Sex : ${sex2} <br> Email : ${email2} <br>Age : ${age2} <br>Phone No. : ${phone2} <br> City : ${city2} <br> State : ${state2} <br> Country : ${country2} <br> Message : ${message2} <br> WANT TO BECOME MEMBER  </p>` // Plain text body
@@ -249,21 +263,16 @@ router.post('/memberform', async function(req, res, next) {
     html: `<h1>In sometime will after confirmation of your payment will send you the membership code soon!<h1><p>Thank you for selecting us ${fullname2} <br> DINESH SAHAY <br> Author/Mentor</p>` // Plain text body
   };
 
-
   try {
     const info = await transporter.sendMail(mailOptions);
     const info2 = await transporter2.sendMail(mailOptions2);
 
-    cloudinary.uploader.upload(recipt.tempFilePath, async function (err, result) {
-      // if (err) {
-      //   console.error(err);
-      //   return res.status(500).send("Error uploading book image.");
-      // }else{
-      //   console.log(result)
-      // }
-  
-      // Here you can save the book details using 'result.secure_url'
-      // Example:
+    // cloudinary.uploader.upload(receipt.tempFilePath, async function (err, result) {
+    //   if (err) {
+    //     console.error(err);
+    //     return res.status(500).send("Error uploading receipt image.");
+    //   }
+
       const newmember = new membermodel({
         fullname: fullname2,
         sex: sex2,
@@ -273,14 +282,11 @@ router.post('/memberform', async function(req, res, next) {
         country: country2,
         email: email2,
         phone: phone2,
-        image: result.secure_url,
+        // image: result.secure_url,
       });
       await newmember.save();
-      // res.redirect('/Books', {newbook});
-      res.redirect('/memberform')
-    });
-    // res.render('memberform', { titlenew: "Form Submitted Successfully!" });
-    // console.log(somthing);
+      res.redirect('/memberform');
+    // });
   } catch (error) {
     console.error(error);
     res.status(500).send("Error submitting form. Please try again later.");
