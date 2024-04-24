@@ -53,6 +53,31 @@ router.post('/login', passport.authenticate("local",{
 }),function(req,res,next){
 });
 
+router.get('/createadmin', function(req,res){
+  res.render('form')
+})
+
+router.post('/createadmin', function(req,res,next){
+  const data = new user({
+    username :  req.body.uname,
+    fullname : req.body.fname,
+    sex:  req.body.sex,
+    age :  req.body.age,
+    city :  req.body.city,
+    state :  req.body.state,
+    country :  req.body.country,
+    email :  req.body.email,
+    phone :  req.body.phone,
+    isAdmin :  req.body.admin
+  })
+  user.register(data, req.body.password)
+  .then(function(u){
+    passport.authenticate('local')(req,res,function(){
+      res.redirect('/');
+    })
+  })
+
+});
 
 
 router.get('/logout',function(req,res,next){
